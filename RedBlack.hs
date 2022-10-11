@@ -35,7 +35,7 @@ We'll make the following standard library functions available for this
  implementation.
 -}
 
-import qualified Data.Foldable as Foldable
+import Data.Foldable qualified as Foldable
 {-
 And we'll use QuickCheck for testing.
 -}
@@ -181,14 +181,14 @@ Here's one that violates the black height requirement (invariant 3).
 -}
 
 bad2 :: RBT Int
-bad2 = Root $ N B (N R E 1 E) 2 (N B E 3 E)
+bad2 = Root $ N B (N B E 1 E) 2 (N B E 3 E)
 
 {-
 Now define a red-black tree that violates invariant 4.
 -}
 
 bad3 :: RBT Int
-bad3 = undefined
+bad3 = Root $ N B (N R (N R E 2 E) 3 E) 4 (N R E 5 E)
 
 {-
 Now define a red-black tree that isn't a binary search tree (i.e. the *values*
