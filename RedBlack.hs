@@ -181,7 +181,7 @@ Here's one that violates the black height requirement (invariant 3).
 -}
 
 bad2 :: RBT Int
-bad2 = Root $ N B (N B E 1 E) 2 (N B E 3 E)
+bad2 = Root $ N B (N R E 1 E) 2 (N B E 3 E)
 
 {-
 Now define a red-black tree that violates invariant 4.
